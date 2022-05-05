@@ -1,0 +1,19 @@
+CREATE TABLE store (id INTEGER PRIMARY KEY, name TEXT, category TEXT, color TEXT, price NUMERIC, quantity INTEGER);
+INSERT INTO store VALUES ( 1, "Shirts", "reg", "white", 25.99, 45);
+INSERT INTO store VALUES ( 2, "Tops", "basic", "blue", 15.99, 33);
+INSERT INTO store VALUES ( 3, "Jeans","basic", "black", 49.99, 105);
+INSERT INTO store VALUES ( 4, "Pants", "corp", "black", 69.99, 40);
+INSERT INTO store VALUES ( 5, "Blazers", "corp", "black", 109.99, 15);
+INSERT INTO store VALUES (6, "Skirts", "leather", "purple", 49.99, 5);
+INSERT INTO store VALUES (7, "Jumpsuits", "reg", "green", 79.99, 2);
+INSERT INTO store VALUES (8, "Pants", "leather", "brown", 59.99, 85);
+INSERT INTO store VALUES (9, "Skirts", "basic", "white", 49.99, 54);
+INSERT INTO store VALUES (10, "Earrings", "accessories", "gold", 25.99, 15);
+INSERT INTO store VALUES (11, "Watch", "accessories", "gold", 59.99, 3);
+INSERT INTO store VALUES (12, "Rings", "accessories", "silver", 39.99, 24);
+INSERT INTO store VALUES (13, "Dress", "long", "pink",109.99, 20);
+INSERT INTO store VALUES (14, "Dress", "short", "olive", 69.99, 55);
+INSERT INTO store VALUES (15, "Pants", "short", "lavender", 49.99, 74);
+SELECT * FROM store;
+SELECT * FROM store WHERE price = 49.99;
+SELECT price, SUM(quantity) FROM store GROUP BY price
