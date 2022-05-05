@@ -16,4 +16,4 @@ INSERT INTO store VALUES (14, "Dress", "short", "olive", 69.99, 55);
 INSERT INTO store VALUES (15, "Pants", "short", "lavender", 49.99, 74);
 SELECT * FROM store;
 SELECT * FROM store WHERE price = 49.99;
-SELECT price, SUM(quantity) FROM store GROUP BY price
+SELECT price, SUM(quantity) FROM store GROUP BY price;
