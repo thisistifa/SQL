@@ -1,0 +1,94 @@
+--How many orders were placed in January?
+SELECT COUNT(orderid) 
+FROM JanSales;
+
+--How many of those orders were for an iPhone?
+SELECT COUNT(orderid)
+FROM JanSales
+WHERE Product = 'iPhone';
+
+
+--Select the customer account numbers for all the orders that were placed in February.
+SELECT acctnum
+FROM customers cust
+INNER JOIN FebSales Feb
+ON cust.order_id=FEB.orderid;
+
+
+--Which product was the cheapest one sold in January, and what was the price?
+SELECT distinct Product, MIN(price)
+FROM JanSales
+GROUP BY Product, price
+ORDER BY price ASC
+LIMIT 1;
+
+--What is the total revenue for each product sold in January?
+SELECT SUM(quantity) * price 
+AS revenue,Product
+FROM JanSales
+GROUP BY Product;
+
+
+--Which products were sold in February at 548 Lincoln St, Seattle, WA 98101, how many of each were sold, and what was the total revenue?
+SELECT SUM(quantity), Product,
+SUM(quantity) * price AS revenue
+FROM FebSales
+WHERE location = '548 Lincoln St, Seattle, WA 98101'
+GROUP BY Product;
+
+--How many customers ordered more than 2 products at a time, and what was the average amount spent for those customers?
+SELECT COUNT(cust.acctnum),
+AVG(quantity) * price
+FROM FebSales Feb
+LEFT JOIN Project_DB.customers cust
+ON Feb.orderid = cust.order_id
+WHERE Feb.quantity > 2;
+
+
+
+SELECT orderdate
+FROM FebSales
+WHERE orderdate BETWEEN '02/13/19' AND '02/18/19';
+
+
+
+SELECT location
+FROM FebSales
+WHERE orderdate = '02/18/19 01:35';
+
+
+
+SELECT SUM(quantity) 
+FROM FebSales
+WHERE orderdate LIKE '02/18/19%'
+
+
+SELECT distinct Product
+FROM FebSales
+WHERE Product LIKE '%Batteries%';
+
+
+SELECT distinct Product, Price
+FROM FebSales
+WHERE Price LIKE '%.99';
+
+
+SELECT Product,SUM(quantity)
+FROM FebSales
+WHERE location LIKE '%Los Angeles%'
+GROUP BY Product;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
